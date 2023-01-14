@@ -30,4 +30,20 @@ public class StudentServiceImpl implements StudentService {
 	public Student deleteById(int id) {
 		return dao.deleteById(id);
 	}
+
+	@Override
+	public Student updateEmployee(Student student) {
+		
+		return dao.updateStudent(student);
+	}
+
+	@Override
+	public Student updatePatch(Student student) {
+		return dao.updatePatch(student);
+	}
+
+	@Override
+	public Student updatePatchById(int id) {
+		return dao.updatePatchById(id);
+	}
 }

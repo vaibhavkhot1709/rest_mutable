@@ -34,20 +34,56 @@ public class StudentDaoImpl implements StudentDao {
 		List<Student> stdList = session.createQuery("from Student").list();
 //		session.save(stdList);
 		txn.commit();
-		
+
 		return stdList;
 	}
-	
-	
+
 	public Student deleteById(int id) {
 		Session session = factory.openSession();
 		Transaction txn = session.beginTransaction();
-		Student student= session.get(Student.class, id);
-		Student s2=session.get(Student.class, id);
+		Student student = session.get(Student.class, id);
+		Student s2 = session.get(Student.class, id);
 		session.delete(student);
 		txn.commit();
-	
+
 		return s2;
 	}
-	
+
+	@Override
+	public Student updateStudent(Student student) {
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		session.saveOrUpdate(student);
+		Student std = session.get(Student.class, student.getId());
+
+		txn.commit();
+		return std;
+	}
+
+	@Override
+	public Student updatePatch(Student student) {
+		
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		session.saveOrUpdate(student);
+		Student std = session.get(Student.class, student.getId());
+
+		txn.commit();
+		return std;
+	}
+
+	@Override
+	public Student updatePatchById(int id) {
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		Student student = session.get(Student.class, id);
+
+		Student std = session.get(Student.class, student.getId());
+		session.saveOrUpdate(std);
+		
+		txn.commit();
+		return std;
+		
+	}
+
 }

@@ -11,5 +11,11 @@ public interface StudentDao {
 	public List<Student> getAllStudent();
 	
 	public Student deleteById(int id);
+	
+	public Student updateStudent(Student student);
+
+	public Student updatePatch(Student student);
+	
+	public Student updatePatchById(int id);
 
 }

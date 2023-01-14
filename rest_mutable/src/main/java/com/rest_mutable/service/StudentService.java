@@ -12,5 +12,12 @@ public interface StudentService {
 	
 	public Student deleteById(int id);
 
+	public Student updateEmployee(Student student);
+
+	public Student updatePatch(Student student);
+	
+	public Student updatePatchById(int id);
+
+
 
 }
