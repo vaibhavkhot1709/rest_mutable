@@ -1,5 +1,7 @@
 package com.rest_mutable.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +18,16 @@ public class StudentServiceImpl implements StudentService {
 	public void createStudent(Student student) {
 	
 		dao.createStudent(student);
+	}
+
+	@Override
+	public List<Student> getAllStudent() {
+
+		return dao.getAllStudent();
+	}
+
+	@Override
+	public Student deleteById(int id) {
+		return dao.deleteById(id);
 	}
 }
