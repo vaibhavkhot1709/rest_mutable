@@ -6,10 +6,7 @@ public class ErrorResponse {
 
 	String message;
 	List<String> details;
-	public ErrorResponse() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 	public ErrorResponse(String message, List<String> details) {
 		super();
 		this.message = message;

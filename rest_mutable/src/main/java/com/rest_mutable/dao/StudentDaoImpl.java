@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.rest_mutable.exception.GlobalEx;
 import com.rest_mutable.model.Student;
 
 @Repository
@@ -41,11 +42,11 @@ public class StudentDaoImpl implements StudentDao {
 	public Student deleteById(int id) {
 		Session session = factory.openSession();
 		Transaction txn = session.beginTransaction();
+
 		Student student = session.get(Student.class, id);
 		Student s2 = session.get(Student.class, id);
 		session.delete(student);
 		txn.commit();
-
 		return s2;
 	}
 
@@ -62,7 +63,7 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public Student updatePatch(Student student) {
-		
+
 		Session session = factory.openSession();
 		Transaction txn = session.beginTransaction();
 		session.saveOrUpdate(student);
@@ -80,10 +81,22 @@ public class StudentDaoImpl implements StudentDao {
 
 		Student std = session.get(Student.class, student.getId());
 		session.saveOrUpdate(std);
-		
+
 		txn.commit();
 		return std;
-		
+
 	}
 
+	@Override
+	public Student getById(int id){
+		
+		Session session =factory.openSession();
+		Transaction txn = session.beginTransaction();
+		Student std = session.get(Student.class, id);
+		txn.commit();
+
+		return std;
+	}
+
+	
 }

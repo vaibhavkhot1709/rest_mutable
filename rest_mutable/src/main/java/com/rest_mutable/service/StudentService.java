@@ -2,6 +2,7 @@ package com.rest_mutable.service;
 
 import java.util.List;
 
+import com.rest_mutable.exception.GlobalEx;
 import com.rest_mutable.model.Student;
 
 public interface StudentService {
@@ -17,6 +18,8 @@ public interface StudentService {
 	public Student updatePatch(Student student);
 	
 	public Student updatePatchById(int id);
+
+	public Student getById(int id);
 
 
 

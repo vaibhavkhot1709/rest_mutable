@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.rest_mutable.dao.StudentDao;
+import com.rest_mutable.exception.GlobalEx;
 import com.rest_mutable.model.Student;
 
 
@@ -45,5 +46,10 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public Student updatePatchById(int id) {
 		return dao.updatePatchById(id);
+	}
+
+	@Override
+	public Student getById(int id){
+		return dao.getById(id);
 	}
 }
