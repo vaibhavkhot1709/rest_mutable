@@ -22,5 +22,4 @@ public interface StudentService {
 	public Student getById(int id);
 
 
-
 }
